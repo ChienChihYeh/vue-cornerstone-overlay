@@ -27,7 +27,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <h1>Vue Cornerstone Custom Overlay</h1>
+    <h1>Vue Cornerstone3D Custom Overlay Example</h1>
     <div class="container">
       <OverlayLayer
         :pan="transform.pan"
@@ -44,6 +44,11 @@ onMounted(() => {
       <button @click="resetCamera">Reset Camera</button> |
       <input type="range" v-model.number="threshold" min="1" max="3" step="1" />
       Threshold: {{ threshold }}
+    </p>
+    <p>
+      <a href="https://github.com/ChienChihYeh/vue-cornerstone-overlay"
+        >GitHub Repo</a
+      >
     </p>
   </main>
 </template>

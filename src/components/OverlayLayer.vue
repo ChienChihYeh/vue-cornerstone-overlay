@@ -17,7 +17,7 @@ function renderImage(threshold: number) {
   };
 }
 
-// watch threshold and trigger your own render strategy
+// watch threshold and trigger your own render strategy, you can watch image id or other properties as well
 watchEffect(() => {
   renderImage(props.threshold);
 });
