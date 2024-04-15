@@ -13,6 +13,7 @@ import OverlayLayer from "./components/OverlayLayer.vue";
 const el = ref<HTMLDivElement>();
 const transform = ref({ pan: [0, 0], zoom: 1 });
 const threshold = ref(3);
+const opacity = ref(1);
 
 useEventListener(el, cornerstone.EVENTS.CAMERA_MODIFIED, () => {
   updateViewportTransform(transform);
@@ -34,6 +35,7 @@ onMounted(() => {
         :pan="transform.pan"
         :zoom="transform.zoom"
         :threshold="threshold"
+        :opacity="opacity"
       />
       <div class="viewer" ref="el" @contextmenu="$event.preventDefault()"></div>
     </div>
@@ -44,7 +46,15 @@ onMounted(() => {
     <p>
       <button @click="resetCamera">Reset Camera</button> |
       <input type="range" v-model.number="threshold" min="1" max="3" step="1" />
-      Threshold: {{ threshold }}
+      Threshold: {{ threshold }} |
+      <input
+        type="range"
+        v-model.number="opacity"
+        min="0"
+        max="1"
+        step="0.01"
+      />
+      Opacity: {{ opacity.toFixed(2) }}
     </p>
     <p>
       <a href="https://github.com/ChienChihYeh/vue-cornerstone-overlay"

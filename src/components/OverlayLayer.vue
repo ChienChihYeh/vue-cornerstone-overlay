@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted, watchEffect } from "vue";
 
-const props = defineProps<{ pan: number[]; zoom: number; threshold: number }>();
+const props = defineProps<{
+  pan: number[];
+  zoom: number;
+  threshold: number;
+  opacity: number;
+}>();
 const layer = ref<HTMLCanvasElement>();
 
 // replace it with your own render strategy
@@ -33,7 +38,10 @@ onMounted(() => {
     ref="layer"
     width="500"
     height="500"
-    :style="{ transform: `translate(${pan[0]}px, ${pan[1]}px) scale(${zoom})` }"
+    :style="{
+      transform: `translate(${pan[0]}px, ${pan[1]}px) scale(${zoom})`,
+      opacity: opacity,
+    }"
   >
   </canvas>
 </template>
