@@ -27,10 +27,10 @@ async function initDemoTools() {
 
   toolGroup?.addTool(cornerstoneTools.ZoomTool.toolName);
   toolGroup?.addTool(cornerstoneTools.PanTool.toolName);
-  toolGroup?.setToolActive(cornerstoneTools.ZoomTool.toolName, {
+  toolGroup?.setToolActive(cornerstoneTools.PanTool.toolName, {
     bindings: [
       {
-        mouseButton: 2,
+        mouseButton: 1,
       },
     ],
   });
