@@ -20,6 +20,12 @@ function renderImage(threshold: number) {
       ctx?.drawImage(exampleImage, 0, 0);
     }
   };
+  exampleImage.onerror = () => {
+    if (layer.value) {
+      const ctx = layer.value.getContext("2d");
+      ctx?.clearRect(0, 0, 500, 500);
+    }
+  };
 }
 
 // watch threshold and trigger your own render strategy, you can watch image id or other properties as well
