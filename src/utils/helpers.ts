@@ -20,11 +20,20 @@ async function initCornerstone() {
 
 async function initDemoTools() {
   cornerstoneTools.addTool(cornerstoneTools.ZoomTool);
+  cornerstoneTools.addTool(cornerstoneTools.PanTool);
 
   const toolGroup =
     cornerstoneTools.ToolGroupManager.createToolGroup(toolGroupId);
 
   toolGroup?.addTool(cornerstoneTools.ZoomTool.toolName);
+  toolGroup?.addTool(cornerstoneTools.PanTool.toolName);
+  toolGroup?.setToolActive(cornerstoneTools.ZoomTool.toolName, {
+    bindings: [
+      {
+        mouseButton: 2,
+      },
+    ],
+  });
   toolGroup?.setToolActive(cornerstoneTools.ZoomTool.toolName, {
     bindings: [
       {

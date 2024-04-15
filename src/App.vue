@@ -28,6 +28,7 @@ onMounted(() => {
 <template>
   <main>
     <h1>Vue Cornerstone3D Custom Overlay Example</h1>
+    <p>Left mouse: Pan | Right mouse: Zoom</p>
     <div class="container">
       <OverlayLayer
         :pan="transform.pan"
