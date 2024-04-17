@@ -107,3 +107,11 @@ export function resetCamera() {
   viewport.resetCamera();
   viewport.render();
 }
+
+export function getViewportCurrentImageIdIndex() {
+  const renderingEngine = cornerstone.getRenderingEngine(renderingEngineId);
+  const viewport = renderingEngine?.getViewport(viewportId) as IStackViewport;
+  if (!viewport) return;
+  const currentIndex = viewport.getCurrentImageIdIndex();
+  return currentIndex;
+}

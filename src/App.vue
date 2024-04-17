@@ -9,6 +9,7 @@ import {
 } from "./utils/helpers";
 import { imageId } from "./utils/constant";
 import OverlayLayer from "./components/OverlayLayer.vue";
+import { getViewportCurrentImageIdIndex } from "./utils/helpers";
 
 const el = ref<HTMLDivElement>();
 const transform = ref({ pan: [0, 0], zoom: 1 });
@@ -17,6 +18,11 @@ const opacity = ref(1);
 
 useEventListener(el, cornerstone.EVENTS.CAMERA_MODIFIED, () => {
   updateViewportTransform(transform);
+});
+
+// you can get current image index when viewport new image event is triggered to update overlay
+useEventListener(el, cornerstone.EVENTS.STACK_NEW_IMAGE, () => {
+  console.log("currentImageIdIndex:", getViewportCurrentImageIdIndex());
 });
 
 onMounted(() => {
